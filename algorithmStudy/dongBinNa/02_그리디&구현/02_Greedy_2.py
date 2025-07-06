@@ -34,3 +34,38 @@ print("res",res)
         
 
 # 동빈나 풀이
+
+#data = input()
+#result = int(data[0])
+data = ['02984']
+result = int(data[0])
+
+for i in range(1, len(data)):
+    # 두 수 중에서 하나라도 0 혹은 1 인경우
+    # 곱하기보다는 더하기 수행
+    num = int(data[i])
+    if num <= 1 or result <= 1:
+        result += num
+    else:
+        result *= num
+
+print("dongBinNa", result)  # 왜 결과다르냐..? 동빈나 틀림?
+
+
+print("Discussion")
+print("그러네 1곱하면 의미 없으니까 1을 더해주는게 낫네 이거 생각못했다.")
+
+# 다시 내 코드 수정
+
+S = "01184"
+#S = "120"
+
+res = 0
+
+for i in S:
+    if int(i)==0 or res==0 or int(i)==1:
+        res += int(i)
+    else: 
+        res *= int(i)
+
+print("res",res)

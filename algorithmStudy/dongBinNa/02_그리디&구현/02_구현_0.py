@@ -25,40 +25,33 @@ N = 5
 move = ['R','R','R','U','D','D']
 initial_locate = [1,1]
 
-def U(n):  # 상
-    global initial_locate
+def U():  # 상
     if initial_locate[0] > 1:
-        return initial_locate[0] + 1
+        initial_locate[0] -= 1
 
-def D(n):
-    global initial_locate
+def D():
     if initial_locate[0] < N:
-        return initial_locate[1] + 1
+        initial_locate[0] += 1
 
-def L(n):
-    global initial_locate
+def L():
     if initial_locate[1] > 1:
-        return initial_locate[1] + 1
+        initial_locate[1] -= 1
 
-def R(n):
-    global initial_locate
+def R():
     if initial_locate[1] < N:
-        return initial_locate[1] + 1
+        initial_locate[1] += 1
 
 for i in move:
     match i:
         case "U":
-            U(i)
+            U()
         case "D":
-            D(i)
+            D()
         case "L":
-            L(i)
+            L()
         case "R":
-            R(i)
+            R()
 
 print(initial_locate)
-    
-
-
 
 # 동빈나 풀이

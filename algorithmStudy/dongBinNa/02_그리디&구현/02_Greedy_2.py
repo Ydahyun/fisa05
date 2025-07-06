@@ -37,7 +37,7 @@ print("res",res)
 
 #data = input()
 #result = int(data[0])
-data = ['02984']
+data = '02984'
 result = int(data[0])
 
 for i in range(1, len(data)):
@@ -57,7 +57,7 @@ print("그러네 1곱하면 의미 없으니까 1을 더해주는게 낫네 이�
 
 # 다시 내 코드 수정
 
-S = "01184"
+S = "02984"
 #S = "120"
 
 res = 0

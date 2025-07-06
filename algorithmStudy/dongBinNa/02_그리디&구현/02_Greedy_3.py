@@ -50,7 +50,7 @@ cnt = 0
 while True:
     D = X[0]         # D는 리스트의 첫 번째 원소 값을 넣어줘.
     for j in range(D):
-        del X[0]     # 해당 값만큼 지우는거지
+        del X[0]     # 해당 D값만큼 지우는거지(D번지우기)
     cnt += 1         # 지우기(한 루프)가 끝나면 cnt +=1
     if len(X) == 0:  # 다 지워져서 리스트 안에 값이 없으면 while문 탈출
         break

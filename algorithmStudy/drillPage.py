@@ -1,11 +1,23 @@
-import math
+# 디버깅 해보기
+data = ['02984']
+#data = '02984'
 
-# 최소 공배수(LCM)를 구하는 함수
-def lcm(a,b):
-    return a*b // math.gcd(a,b)
+result = int(data[0][0])
+print(data[0][0], "a")
+print(data[0][1], "b")
+print(data[0][2], 'c')
+print(data[0][3], 'd')
+print(data[0][4], 'e')
 
-a=21
-b=14
+for i in range(1, len(data)):
+    # 두 수 중에서 하나라도 0 혹은 1 인경우
+    # 곱하기보다는 더하기 수행
+    num = int(data[0][i])
+    if num <= 1 or result <= 1:
+        result += num
+        print(num, 'f')
+    else:
+        result *= num
+        print(num, 'g')
 
-print(math.gcd(21,14))  # 7
-print(lcm(21,14))       # 42
+print("dongBinNa", result)  # 왜 결과다르냐..? 동빈나 틀림?

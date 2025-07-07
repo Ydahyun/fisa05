@@ -39,7 +39,6 @@ while문 돌리고 더이상 이동 못시키면 break로 탈출
 # a,b,c = map(int, input().split())
 a,b,c=2,3,5
 
-
 count = 0
 while True:
     equ1 = b-a-1
@@ -50,17 +49,18 @@ while True:
         if a == c:
             break
         count +=1
-        
+        print(count)
     elif equ1 > equ2:
         a,b,c = a,b-1,b
         if c == a:
             break
         count +=1
+        print(count)
 
     else:  # 같은 경우 고려해서 <=
         a,b,c = b,b+1,c
         if a == c:
             break
         count +=1
-
+        print(count)
 print(count)

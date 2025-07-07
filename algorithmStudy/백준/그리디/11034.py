@@ -36,31 +36,41 @@ while문 돌리고 더이상 이동 못시키면 break로 탈출
 
 """
 
-# a,b,c = map(int, input().split())
-a,b,c=2,3,5
+a,b,c = map(int, input().split())
+# a,b,c=3,5,9
 
 count = 0
+
 while True:
+    
     equ1 = b-a-1
     equ2 = c-b-1
+
+    if (equ1==0) and (equ2==0):   # 더이상점프안되는경우
+        break
     
-    if equ1 < equ2:  # 같은 경우 고려해서 <=
+    elif equ1 <= equ2:  # 같은 경우 고려해서 <=
         a,b,c = b,b+1,c
         if a == c:
             break
         count +=1
-        print(count)
+        
     elif equ1 > equ2:
         a,b,c = a,b-1,b
         if c == a:
             break
         count +=1
-        print(count)
 
-    else:  # 같은 경우 고려해서 <=
-        a,b,c = b,b+1,c
-        if a == c:
-            break
-        count +=1
-        print(count)
 print(count)
+
+while 1:
+    try:
+        A, B, C = map(int, input().split())
+        print(max(B-A, C-B)-1)
+    except:
+        break
+    
+import sys
+for line in sys.stdin:
+    a, b, c = map(int, line.split())
+    print(max(b - a - 1, c - b - 1))

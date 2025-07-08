@@ -35,29 +35,38 @@ c와 b 사이 간격 구하는 식 2: c-b-1
 while문 돌리고 더이상 이동 못시키면 break로 탈출
 
 """
+"""
 # a,b,c=3,5,9
 
-a,b,c = map(int, input().split())
+def solve(a, b, c):
 
-count = 0
+    count = 0
 
-while True:
+    while True:
 
-    equ1 = b-a-1 # >= 0 
-    equ2 = c-b-1
+        equ1 = b-a-1 # >= 0 
+        equ2 = c-b-1
 
-    if (equ1==0) and (equ2==0):   # 더이상점프안되는경우
-        break
-    
-    elif equ1 <= equ2:  # 같은 경우 고려해서 <=
-        a,b,c = b,b+1,c
-        count +=1
+        if (equ1==0) and (equ2==0):   # 더이상점프안되는경우
+            break
         
-    elif equ1 > equ2:
-        a,b,c = a,b-1,b
-        count +=1
+        elif equ1 <= equ2:  # 같은 경우 고려해서 <=
+            a,b,c = b,b+1,c
+            count +=1
+            
+        elif equ1 > equ2:
+            a,b,c = a,b-1,b
+            count +=1
 
-print(count)
+    # print(count)
+    return count
+
+if __name__ == '__main__':
+    a,b,c = map(int, input().split())
+    answer = solve(a, b, c)
+    print(answer)
+"""
+
 """
 while 1:
     try:
@@ -71,3 +80,19 @@ for line in sys.stdin:
     a, b, c = map(int, line.split())
     print(max(b - a - 1, c - b - 1))
 """
+
+a,b,c = map(int, input().split())
+def dh(a, b, c):
+    count = 0
+    while True:
+        equ1 = b-a-1
+        equ2 = c-b-1
+        if (equ1==0) and (equ2==0):   # 더이상점프안되는경우
+            break
+        elif equ1 <= equ2:  # 같은 경우 고려해서 <=
+            a,b,c = b,b+1,c
+            count +=1
+        elif equ1 > equ2:
+            a,b,c = a,b-1,b
+            count +=1
+    return count

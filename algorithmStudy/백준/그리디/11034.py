@@ -98,6 +98,7 @@ def dh(a, b, c):
     return count
 
 # 최종종~
+# 파이썬은 EOF처리를 못한다는 수업자료기억이나네..
 try:
     while tmp := input():
         a,b,c = map(int, tmp.split())

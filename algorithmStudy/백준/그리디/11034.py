@@ -14,7 +14,7 @@
  (0 < A < B < C < 100)
 
 """
-
+#a b _ _ _ c
 # 출력
 """
 각 테스트에 대해 캥거루가 최대 몇 번 
@@ -42,8 +42,11 @@ a,b,c = map(int, input().split())
 count = 0
 
 while True:
-    
-    equ1 = b-a-1
+    # 1 5 10
+    # 6 5 10
+
+
+    equ1 = b-a-1 # >= 0 
     equ2 = c-b-1
 
     if (equ1==0) and (equ2==0):   # 더이상점프안되는경우

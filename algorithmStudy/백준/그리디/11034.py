@@ -96,3 +96,23 @@ def dh(a, b, c):
             a,b,c = a,b-1,b
             count +=1
     return count
+
+# 최종종~
+try:
+    while tmp := input():
+        a,b,c = map(int, tmp.split())
+        count = 0
+        while True:
+            equ1 = b-a-1 # >= 0
+            equ2 = c-b-1
+            if (equ1==0) and (equ2==0):   # 더이상점프안되는경우
+                break
+            elif equ1 <= equ2:  # 같은 경우 고려해서 <=
+                a,b,c = b,b+1,c
+                count +=1
+            elif equ1 > equ2:
+                a,b,c = a,b-1,b
+                count +=1
+        print(count)
+except EOFError:
+    pass

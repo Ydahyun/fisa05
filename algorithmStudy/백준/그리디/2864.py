@@ -31,15 +31,20 @@
 
 """
 
-a, b = map(str, input().split())
+a, b = map(str, input().split())  # str로 받는 이유는 아래에..
+
+min, max = 0, 0
+
+#### 값 대체를 어떻게 할 지 고민을 많이했숨당
+#### 숫자는 값을 못바꿔주니까 리스트에 넣었어용
 
 a_li_min = list(a)
 b_li_min = list(b)
 a_li_max = list(a)
 b_li_max = list(b)
 
-min, max = 0, 0
 
+ 
 # a처리기
 for i in range(len(a)):
     if a_li_min[i] == '6':
@@ -56,13 +61,13 @@ for i in range(len(b)):
     if b_li_max[i] == '5':
         b_li_max[i] = '6'
 
-# 각 리스트들 int로 형 변환 해주고
+# 각 리스트들 int로 형 변환 해서 다시 대입해주궁
 a_li_min = list(map(int, a_li_min))
 a_li_max = list(map(int, a_li_max))
 b_li_min = list(map(int, b_li_min))
 b_li_max = list(map(int, b_li_max))
 
-# 자리 수에 맞게 *(10^n)을 해줘서 단위를 맞춰주기
+# 자리 수에 맞게 *(10^n)을 해줘서 단위를 맞춰주기~
 
 # a_li_min = [1, 1]   -(변환)--> [10, 1]
 
@@ -85,16 +90,11 @@ print(min, max)
 
 # Discussion
 """
-변수 명으로 사용했던
+1. 변수 명으로 사용했던
 min, max는 파이썬 내장함수와 이름을 겹치니
 min_val, max_val과 같이 고쳐주는게 좋음.
 
-a, b = input().split()
-min_sum = int(a.replace('6', '5')) + int(b.replace('6', '5'))
-max_sum = int(a.replace('5', '6')) + int(b.replace('5', '6'))
-print(min_sum, max_sum)
-
-문자열 치환을 이용하면 더 간단하게 풀 수 있다.
+2. 문자열 치환을 이용하면 더 간단하게 풀 수 있다.
 
 a, b = input().split()
 
@@ -104,5 +104,6 @@ min_val = int(a.replace('6', '5')) + int(b.replace('6', '5'))
 max_val = int(a.replace('5', '6')) + int(b.replace('5', '6'))
 
 print(min_val, max_val)
+
 
 """

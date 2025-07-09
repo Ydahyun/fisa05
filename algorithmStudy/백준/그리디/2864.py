@@ -1,4 +1,5 @@
-# <문제> 문제제목: 문제 설명
+# 백준 2864번
+# <문제> 5와 6의차이: 문제 설명
 """
 상근이는 2863번에서 표를 너무 열심히 돌린 나머지 5와 6을 헷갈리기 시작했다.
 
@@ -84,5 +85,24 @@ print(min, max)
 
 # Discussion
 """
+변수 명으로 사용했던
+min, max는 파이썬 내장함수와 이름을 겹치니
+min_val, max_val과 같이 고쳐주는게 좋음.
+
+a, b = input().split()
+min_sum = int(a.replace('6', '5')) + int(b.replace('6', '5'))
+max_sum = int(a.replace('5', '6')) + int(b.replace('5', '6'))
+print(min_sum, max_sum)
+
+문자열 치환을 이용하면 더 간단하게 풀 수 있다.
+
+a, b = input().split()
+
+# 최소값: 6을 5로 모두 바꿔서 합
+min_val = int(a.replace('6', '5')) + int(b.replace('6', '5'))
+# 최대값: 5를 6으로 모두 바꿔서 합
+max_val = int(a.replace('5', '6')) + int(b.replace('5', '6'))
+
+print(min_val, max_val)
 
 """

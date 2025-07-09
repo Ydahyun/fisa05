@@ -30,29 +30,40 @@
 
 """
 
-a, b = '11', '25'
+aa, b = '11', '25'
 #a, b = map(int, input().split())
 #print(a,b)
+a_li = list(a)
+b_li = list(b)
 min, max = 0, 0
 
 # min 구하기
 for i in range(len(a)):
-    if a[i] == '6':
-        a[i] = '5'
+    if a_li[i] == '6':
+        a_li[i] = '5'
 
-    if b[i] == '6':
-        b[i] = '5'
-min = int(a) + int(b)
+    if b_li[i] == '6':
+        b_li[i] = '5'
+
+a_li = list(map(int, a_li))
+b_li = list(map(int, b_li))
+
+min = sum(a_li) + sum(b_li)  # ㅋㅋ머하냥 자리수가 다른딩 왜 다더해
+
+a_li = list(a)
+b_li = list(b)
 
 # max 구하기
 for i in range(len(a)):
-    if a[i] == '5':
-        a[i] = '6'
+    if a_li[i] == '5':
+        a_li[i] = '6'
 
-    if b[i] == '5':
-        b[i] = '6'
+    if b_li[i] == '5':
+        b_li[i] = '6'
 
-print(a, b)
-max = int(a) + int(b)
+a_li = list(map(int, a_li))
+b_li = list(map(int, b_li))
+
+max = sum(a_li) + sum(b_li)
 
 print(min, max)

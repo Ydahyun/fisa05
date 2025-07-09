@@ -30,40 +30,54 @@
 
 """
 
-aa, b = '11', '25'
-#a, b = map(int, input().split())
-#print(a,b)
-a_li = list(a)
-b_li = list(b)
+a, b = map(str, input().split())
+
+a_li_min = list(a)
+b_li_min = list(b)
+a_li_max = list(a)
+b_li_max = list(b)
+
 min, max = 0, 0
 
-# min 구하기
+# a처리기
 for i in range(len(a)):
-    if a_li[i] == '6':
-        a_li[i] = '5'
+    if a_li_min[i] == '6':
+        a_li_min[i] = '5'
 
-    if b_li[i] == '6':
-        b_li[i] = '5'
+    if a_li_max[i] == '5':
+        a_li_max[i] = '6'
 
-a_li = list(map(int, a_li))
-b_li = list(map(int, b_li))
+# b처리기
+for i in range(len(b)):
+    if b_li_min[i] == '6':
+        b_li_min[i] = '5'
 
-min = sum(a_li) + sum(b_li)  # ㅋㅋ머하냥 자리수가 다른딩 왜 다더해
+    if b_li_max[i] == '5':
+        b_li_max[i] = '6'
 
-a_li = list(a)
-b_li = list(b)
+# 각 리스트들 int로 형 변환 해주고
+a_li_min = list(map(int, a_li_min))
+a_li_max = list(map(int, a_li_max))
+b_li_min = list(map(int, b_li_min))
+b_li_max = list(map(int, b_li_max))
 
-# max 구하기
-for i in range(len(a)):
-    if a_li[i] == '5':
-        a_li[i] = '6'
+# 자리 수에 맞게 *(10^n)을 해줘서 단위를 맞춰주기
 
-    if b_li[i] == '5':
-        b_li[i] = '6'
+# a_li_min = [1, 1]   -(변환)--> [10, 1]
 
-a_li = list(map(int, a_li))
-b_li = list(map(int, b_li))
+for i in range(0,len(a_li_min)):
+    a_li_min[i] = a_li_min[i]* ( 10**(len(a_li_min)-i-1) )
 
-max = sum(a_li) + sum(b_li)
+for i in range(0,len(a_li_max)):
+    a_li_max[i] = a_li_max[i]* ( 10**(len(a_li_max)-i-1) )
+    
+for i in range(0,len(b_li_min)):
+    b_li_min[i] = b_li_min[i]* ( 10**(len(b_li_min)-i-1) )
+
+for i in range(0,len(b_li_max)):
+    b_li_max[i] = b_li_max[i]* ( 10**(len(b_li_max)-i-1) )
+
+min = sum(a_li_min) + sum(b_li_min)
+max = sum(a_li_max) + sum(b_li_max)
 
 print(min, max)

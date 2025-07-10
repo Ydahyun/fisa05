@@ -66,32 +66,6 @@ for _ in range(N):
 
 list_cnt = list(map(int, list_cnt))  # int형으로 변환시켜서 다시 담기
 
-# list_cnt = [5,10,7,3,8]
-# 일단 제일 많은 애 꺼 표 뺏는거 먼저하자
-
-# max()가 앞에서 먹으면 끝나니까 그냥 다솜이를 마지막으로 밀자
-# -> 어캐 구현?
-# -> append(리스트[0])로 붙이고 pop(0) 해볼까
-list_cnt.append(list_cnt[0])
-list_cnt.pop(0)
-
-while True:
-    max_index = list_cnt.index(max(list_cnt))
-
-
-    if list_cnt.count(list_cnt[max_index]) > 1: 
-        #list_cnt[-1]+=1
-        cnt+=1
-        list_cnt[max_index]-=1
-        continue
-    
-    # 맥스인덱스가 [0]이 아닌경우
-    list_cnt[max_index]-=1  # 미안해융 다솜이가 매수했어용
-    list_cnt[-1]+=1         # 뒤로 붙인 다솜이 한 표 가져 (매수완.)
-
-    cnt +=1                 # 매수 카운트..
-
-print(cnt)
 
 # Discussion
 """

@@ -46,34 +46,52 @@ N은 50보다 작거나 같은 자연수이고, 득표수는 100보다 작거나
 
 """
 
-
-N = int(input())  # 후보 수
-list_cnt = [] # 각 후보별 득표수를 담을 리스트
+N = int(input()) 
+list_cnt = [] 
 cnt = 0
 
-
-
 for _ in range(N):
-    try :
-        list_cnt.append(input())  # 후보들 득표 수 담아염
-        
-        if N == 1:
-            print(cnt)
-            exit()
-        
-    except EOFError :
-        break
+    list_cnt.append(input())  
 
-list_cnt = list(map(int, list_cnt))  # int형으로 변환시켜서 다시 담기
+
+list_cnt = list(map(int, list_cnt))
 list_cnt.append(list_cnt[0])
-list_cnt.pop(0)  # 다솜이 뒤로 보내버려
-
-#print(list_cnt)
-max_idx = list_cnt.index(max(list_cnt))
-print(max_idx)
-print(list_cnt.index(max(list_cnt)))
+list_cnt.pop(0) 
 
 
+while True:
+
+    max_idx = list_cnt.index(max(list_cnt))
+
+    if list_cnt.count(max_idx) > 1:
+        # [5,10,8,10] 경우
+        if list_cnt[max_idx] == list_cnt[-1]:
+            list_cnt[max_idx]-=1
+            list_cnt[-1]+=1
+            cnt+=1
+            break
+        elif list_cnt[max_idx]!=list_cnt[-1]:
+            list_cnt[max_idx]-=1
+            list_cnt[-1]+=1
+            cnt+=1
+    
+
+
+    # 최대값 개수가 1인경우
+    # 아.. 다솜이가 최대이면 카운트 세면안되네..
+    else:
+        # 리스트에서 최대값이 1개이고, 최대값이 다솜이 표라면 브레이크
+        if (list_cnt.count(list_cnt[max_idx]) == 1) and (list_cnt[max_idx] == list_cnt[-1]):
+            break
+        else:
+
+            list_cnt[max_idx]-=1
+            list_cnt[-1]+=1
+            cnt+=1
+
+            
+                                             
+print(cnt)
 
 
 

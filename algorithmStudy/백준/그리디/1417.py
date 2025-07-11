@@ -45,7 +45,7 @@ N은 50보다 작거나 같은 자연수이고, 득표수는 100보다 작거나
 이 접근이 틀리게됨.)
 
 """
-# 입력부만 놔두고 그냥 코드 다시짜자..
+
 
 N = int(input())  # 후보 수
 list_cnt = [] # 각 후보별 득표수를 담을 리스트
@@ -65,6 +65,16 @@ for _ in range(N):
         break
 
 list_cnt = list(map(int, list_cnt))  # int형으로 변환시켜서 다시 담기
+list_cnt.append(list_cnt[0])
+list_cnt.pop(0)  # 다솜이 뒤로 보내버려
+
+#print(list_cnt)
+max_idx = list_cnt.index(max(list_cnt))
+print(max_idx)
+print(list_cnt.index(max(list_cnt)))
+
+
+
 
 
 # Discussion

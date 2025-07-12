@@ -88,16 +88,26 @@ for score in list_score:
 
 for _ in range(k):  # 학생 수만큼 반복
     for j in range(n-1):  # 교실수-1 만큼 반복 (index out of range 오류 방지)
-        if class_info[j][0] > class_info[j+1][0] and class_info[j][-1] == False:  # 3, -5 and False
+
+        if class_info[j][-1] == True:
+            class_info[j][1] +=1
+            continue
+
+        if class_info[j][0] > class_info[j+1][0]:  # 2, -1
             class_info[j][1] +=1       # 교실방문횟수 카운트
             class_info[j][-1] = True   # 이 교실을 최종목적지로 확정시킴
             break
-        
-        else:                          # 다음 교실이 가중치가 더 작지만 현 교실의 최종목적지가 True이므로 넘어가자
+        else:                      
             class_info[j][1] +=1       # 일단 교실 넘어가기전에 방문횟수 카운트해주고
-            class_info[j+1][1] +=1     # 다음 교실도 카운트
-            class_info[j+1][0] > class_info[j+2][0]
+            continue
+if class_info[-1][-1] == False:
+    class_info[-1][1] +=1  # 마지막 방의 경우
+sum =0
+for i in range(len(class_info)):
+    sum +=class_info[i][0]*class_info[i][1]
 
+print(class_info)
+print(sum)
 # Discussion
 """
 

@@ -1,23 +1,27 @@
-# 디버깅 해보기
-data = ['02984']
-#data = '02984'
+import sys
+import heapq
 
-result = int(data[0][0])
-print(data[0][0], "a")
-print(data[0][1], "b")
-print(data[0][2], 'c')
-print(data[0][3], 'd')
-print(data[0][4], 'e')
+def solve():
+    # ↓ 빠른 입력
+    N, K = map(int, sys.stdin.readline().split())
+    A = list(map(int, sys.stdin.readline().split()))
 
-for i in range(1, len(data)):
-    # 두 수 중에서 하나라도 0 혹은 1 인경우
-    # 곱하기보다는 더하기 수행
-    num = int(data[0][i])
-    if num <= 1 or result <= 1:
-        result += num
-        print(num, 'f')
-    else:
-        result *= num
-        print(num, 'g')
+    # 1️⃣ prefix 배열 생성
+    prefix = []
+    s = 0
+    for a in A:
+        s += a
+        prefix.append(s)
 
-print("dongBinNa", result)  # 왜 결과다르냐..? 동빈나 틀림?
+    # 2️⃣ 가장 큰 K개 합산 ─ 두 가지 방법
+    # 방법 A. 정렬 (N log N)
+    # answer = sum(sorted(prefix, reverse=True)[:K])
+
+    # 방법 B. heapq (N log K)  ← K가 훨씬 작을 수도 있으므로 보편적으로 안전
+    largest_k = heapq.nlargest(K, prefix)  # max-heap 없이도 내부에서 알아서 정렬
+    answer = sum(largest_k)
+
+    print(answer)
+
+if __name__ == "__main__":
+    solve()

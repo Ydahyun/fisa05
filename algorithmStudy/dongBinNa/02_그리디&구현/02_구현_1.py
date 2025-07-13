@@ -63,6 +63,7 @@ print(cnt)
 
 # 동빈나 풀이
 
+
 h=5
 count=0
 for i in range(h+1):

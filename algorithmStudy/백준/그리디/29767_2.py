@@ -99,11 +99,13 @@ def heapsort(iterable):
     # 모든 원소를 차례대로 힙에 삽입
     for value in iterable:
         heapq.heappush(h, -value)  # 맥스힙만드려면 -value
-
-
+    print(h)
+    
     # 힙에 삽입된 모든 원소를 차례대로 꺼내어 담기
     for i in range(len(h)):
         result.append(-heapq.heappop(h))  # 여기도 맥스힙만들때 부호복원
+    
+    print(result)
     return result
 
 res = heapsort(individual_list)

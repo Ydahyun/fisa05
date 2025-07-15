@@ -20,11 +20,11 @@
 """
 
 #S = input()
-S='A'
-print(f"u{S}")
+#S='9'
+#print(ord(S))
 
+print(ord(input()))
 
-# 동빈나 풀이
 
 # Discussion
 """

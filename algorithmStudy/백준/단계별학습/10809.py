@@ -18,19 +18,17 @@
 """
 
 """
-
-s=input()
 dict_cnt = {}
-
+s=input()
 for i in range(ord('a'), ord('z')+1):
     dict_cnt[chr(i)]=-1
 
 
-# dict_cnt
-
-for i in range(s):
-    #if s[i] == 
-    pass
+for i, k in enumerate(s):
+    if dict_cnt[k] != -1:
+        continue
+    else: dict_cnt[k] = i
+print(*dict_cnt.values())
 # Discussion
 """
 

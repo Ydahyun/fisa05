@@ -34,16 +34,16 @@ combi = list(combinations(card_list, 3))
 # [(5, 6, 7), (5, 6, 8), (5, 6, 9), (5, 7, 8), (5, 7, 9), (5, 8, 9), (6, 7, 8), (6, 7, 9), (6, 8, 9), (7, 8, 9)]
 combi_sum = []
 for i in combi:
-    if sum(i)<M:
+    if sum(i)<=M:  # 내가 이걸 < 만 해줘서 틀렸었네
         combi_sum.append(sum(i))
-print("combi_sum\n",combi_sum)
+#print("combi_sum\n",combi_sum)
 #[18, 19, 20, 20, 21, 22, 21, 22, 23, 24]
 diff = []
 for i in combi_sum:
     diff.append(abs(i-M))
-print("diff\n", diff)
+#print("diff\n", diff)
 # [3, 2, 1, 1, 0, 1, 0, 1, 2, 3]
-print(diff.index(min(diff)))  # 4
+#print(diff.index(min(diff)))  # 4
 if len(diff) == 0:
     print(M)
 else:

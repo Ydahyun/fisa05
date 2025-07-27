@@ -5,29 +5,15 @@
 """
 
 #N = int(input())
-N=11
-cnt=0
+N=21
+result = -1
 
-def checker(N, cnt):
-    cnt_3=0
-    cnt_5=0
-    
-    if (N%5) % 3 ==0:
-        cnt = (cnt_5:=N//5) + (cnt_3:=(N%5)//3)
-    else: cnt = (cnt_3:=N//3) + (cnt_5:=(N%3)//5)
-    print(cnt)
+# 5kg 먼저 계산
+for x in range(N // 5, -1, -1):  # 5로 나눈 최대 개수부터 줄여나가기
+    remain = N - (5 * x)
+    if remain % 3 == 0:
+        y = remain // 3
+        result = x + y
+        break
 
-
-# 정확히 못만드는거
-if (N%5) % 3 ==0:
-    checker(N,cnt)
-    #exit()
-elif (N%3) % 5 ==0:
-    checker(N,cnt)
-    #exit()
-elif (N%5) % 3 !=0:
-    print(-1)
-    #exit()
-elif (N%3) % 5 !=0:
-    print(-1)
-
+print(result)

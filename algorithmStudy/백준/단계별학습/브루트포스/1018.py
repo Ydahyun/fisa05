@@ -50,3 +50,37 @@ i가 홀수일땐 B인지 확인해서 B이면 그대로두고,
 아니면 W로바꿔. 그리고 카운트
 """
 
+# input 파트
+
+N, M= map(int, input().split())
+input_list=[]
+for _ in range(N):
+    input_list.append(list(input()))
+# print(input_list)
+# 인풋파트 완료
+
+
+def stride(N, M, input_list):
+    cnt_list = []
+
+    for j in range(N - 8 + 1):      # y축 방향
+        for i in range(M - 8 + 1):  # x축 방향
+            cnt1 = 0  # 시작이 B일 때 다시 칠해야 할 칸 수
+            cnt2 = 0  # 시작이 W일 때 다시 칠해야 할 칸 수
+
+            for y in range(8):
+                for x in range(8):
+                    current = input_list[j + y][i + x]
+                    if (x + y) % 2 == 0:
+                        if current != 'B': cnt1 += 1
+                        if current != 'W': cnt2 += 1
+                    else:
+                        if current != 'W': cnt1 += 1
+                        if current != 'B': cnt2 += 1
+
+            cnt_list.append(min(cnt1, cnt2))
+
+    return cnt_list
+
+
+print(min(stride(N, M, input_list)))

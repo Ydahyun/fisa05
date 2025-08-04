@@ -12,7 +12,7 @@ for _ in range(M):
 
 #print(adj)
 for neighbours in adj:
-    neighbours.sort(reverse=True)          # 오름차순
+    neighbours.sort(reverse=True)          # 내림차순
 #print(adj)
 
 visited=[0]*(N+1)

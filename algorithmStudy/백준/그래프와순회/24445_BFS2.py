@@ -12,7 +12,7 @@ for _ in range(M):
     graph[v].append(u)
 
 for neighbours in graph:
-    neighbours.sort()
+    neighbours.sort(reverse=True)
 
 
 visited = [0]*(N+1)

@@ -2,7 +2,7 @@ from collections import deque
 
 def bfs(x, y):
     queue = deque()
-    queue.append((x, y))
+    queue.append((x, y))  # 방문처리를 해주는게 어펜드야
 
     while queue:
         x, y = queue.popleft()  # 여기 틀림
@@ -12,7 +12,7 @@ def bfs(x, y):
             ny = y + dy[i]
 
             # 경로 벗어나는 경우
-            if nx < 0 or nx >= N or ny < 0 or ny >= M:  # 여기도 틀림
+            if nx < 0 or nx >= N or ny < 0 or ny >= M:  # 여기도 틀림(부호조심)
                 continue
 
             # 0을 만난 경우

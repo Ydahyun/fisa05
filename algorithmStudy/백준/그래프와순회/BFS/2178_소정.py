@@ -5,14 +5,14 @@ def bfs(x, y):
     queue.append((x, y))
 
     while queue:
-        x, y = queue.popleft()
+        x, y = queue.popleft()  # 여기 틀림
 
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
 
             # 경로 벗어나는 경우
-            if nx < 0 or nx >= N or ny < 0 or ny >= M:
+            if nx < 0 or nx >= N or ny < 0 or ny >= M:  # 여기도 틀림
                 continue
 
             # 0을 만난 경우
@@ -22,7 +22,7 @@ def bfs(x, y):
             # 1을 만난 경우
             if graph[nx][ny] == 1:
                 graph[nx][ny] = graph[x][y] + 1
-                queue.append((nx, ny))
+                queue.append((nx, ny))  # 여기도 틀림
 
     return graph[N-1][M-1]
 

@@ -1,6 +1,6 @@
 from collections import deque
 
-N = int(input())
+N = int(input().strip())
 
 graph = []
 
@@ -12,19 +12,22 @@ for _ in range(N):
 visited = [[False] * N for _ in range(N)]
 
 def BFS(x, y):
-    # 이동할 상하좌우 방향 저으이
+    if graph[x][y] == 0 or visited[x][y] == True:
+        return 0
+    # 이동할 상하좌우 방향 정의
     dx = [-1,1,0,0]
     dy = [0,0,-1,1]
 
     queue = deque()
     queue.append((x,y))
-    d=0  # 단면적을 셀 변수
+    visited[x][y] = True
+    d=1  # 단면적을 셀 변수
     while queue:
-        x, y = queue.popleft()
+        cx, cy = queue.popleft()
 
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+            nx = cx + dx[i]
+            ny = cy + dy[i]
             # 위치 벗어나면 안되므로 조건 추가
             if nx<0 or nx>=N or ny <0 or ny >=N:
                 continue
@@ -36,10 +39,18 @@ def BFS(x, y):
                 queue.append((nx,ny))
                 visited[nx][ny] = True
                 d += 1
-    gaduri = 1
+
     return d
 
 dan_myunjuk = []
 for i in range(N):
     for j in range(N):
-        dan_myunjuk.append(BFS(i,j))
+        if graph[i][j] == 1 and visited[i][j] == False:
+            return_value = BFS(i,j)
+            if return_value > 0:
+                dan_myunjuk.append(return_value)
+
+dan_myunjuk.sort()
+print(len(dan_myunjuk))
+for i in dan_myunjuk:
+    print(i)

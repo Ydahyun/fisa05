@@ -17,7 +17,7 @@ for _ in range(T):
     for i in range(k):
         for j in range(n-1):
             dp[i+1][j+1] = dp[i+1][j] + dp[i][j+1]
-            #print(dp[i+1][j+1], dp[i+1][j] , dp[i][j+1])
+            print(dp[i+1][j+1], dp[i+1][j] , dp[i][j+1])
 
     #print(dp)
     #print("+++++++++++++++++++")
